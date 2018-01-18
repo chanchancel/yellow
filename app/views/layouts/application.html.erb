@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yellow</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<% unless @title == "Post" %>
+    <div id="blocks">
+      <div id="heading">
+        <ul>
+          <li <%= @title == "Posts" || @title == "Post" ? 'id=current' : '' %>><a href="/posts/new">Posts</a></li>
+          <li <%= @title == "Categories"? 'id=current' : '' %>><a href="/category/index">Category</a></li>
+          <li <%= @title == "Comments"? 'id=current' : '' %>><a href="Sea-Freight-Quick-Movers.php">Comments</a></li>
+          <li <%= @title == "Users"? 'id=current' : '' %>><a href="#">Users</a></li>
+        </ul>
+      </div>
+      <h1><%= @heading %></h1>
+      <div id="content">
+  <% end %>
+	<%= yield %>
+  <% unless @title == "Post" %>
+      </div>
+    </div>
+  <% end%>
+</body>
+</html>
